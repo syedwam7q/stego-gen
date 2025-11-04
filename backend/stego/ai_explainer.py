@@ -292,56 +292,108 @@ Provide JSON response:
             return "I'm here to help you understand steganography! Ask me about algorithms (LSB, DCT, DWT), security concerns, quality metrics (PSNR, SSIM), or best practices for hiding data securely."
     
     def _fallback_comparison(self, algo1: str, algo2: str) -> Dict:
-        """Fallback algorithm comparison"""
+        """Fallback algorithm comparison with detailed analysis"""
         
-        comparisons = {
-            ("LSB", "DCT"): {
-                "capacity": {"winner": "LSB", "explanation": "LSB can embed more data with adjustable bits per channel"},
-                "security": {"winner": "DCT", "explanation": "DCT is more resistant to statistical attacks"},
-                "robustness": {"winner": "DCT", "explanation": "DCT survives JPEG compression better"},
-                "complexity": {"winner": "LSB", "explanation": "LSB is simpler to implement and faster"},
-                "use_cases": {
-                    "LSB": "Large payloads, lossless formats, personal use",
-                    "DCT": "Compressed images, web sharing, compression resistance needed"
-                },
-                "recommendation": "Use LSB for maximum capacity with lossless formats. Use DCT when image may be compressed or shared online."
+        # Normalize algorithm names
+        algo1 = algo1.upper()
+        algo2 = algo2.upper()
+        
+        # Detailed comparison data
+        algo_profiles = {
+            "LSB": {
+                "capacity_score": 100,
+                "security_score": 60,
+                "robustness_score": 50,
+                "complexity_score": 90
             },
-            ("LSB", "DWT"): {
-                "capacity": {"winner": "LSB", "explanation": "LSB offers higher capacity"},
-                "security": {"winner": "DWT", "explanation": "DWT provides better imperceptibility"},
-                "robustness": {"winner": "DWT", "explanation": "DWT is more robust to modifications"},
-                "complexity": {"winner": "LSB", "explanation": "LSB is much simpler"},
-                "use_cases": {
-                    "LSB": "Quick embedding, large payloads, personal files",
-                    "DWT": "High-security needs, professional applications"
-                },
-                "recommendation": "Use LSB for everyday use and large data. Use DWT when security and invisibility are paramount."
+            "DCT": {
+                "capacity_score": 65,
+                "security_score": 80,
+                "robustness_score": 90,
+                "complexity_score": 60
             },
-            ("DCT", "DWT"): {
-                "capacity": {"winner": "Similar", "explanation": "Both have moderate capacity"},
-                "security": {"winner": "DWT", "explanation": "DWT generally offers better imperceptibility"},
-                "robustness": {"winner": "DCT", "explanation": "DCT better handles JPEG-specific operations"},
-                "complexity": {"winner": "DCT", "explanation": "DCT is slightly less complex"},
-                "use_cases": {
-                    "DCT": "JPEG images, web distribution",
-                    "DWT": "Professional steganography, research, high-security"
-                },
-                "recommendation": "Use DCT for JPEG and web images. Use DWT for maximum security with PNG/lossless formats."
+            "DWT": {
+                "capacity_score": 70,
+                "security_score": 85,
+                "robustness_score": 85,
+                "complexity_score": 50
+            },
+            "AUDIO": {
+                "capacity_score": 95,
+                "security_score": 70,
+                "robustness_score": 65,
+                "complexity_score": 75
+            },
+            "VIDEO": {
+                "capacity_score": 100,
+                "security_score": 75,
+                "robustness_score": 70,
+                "complexity_score": 55
             }
         }
         
-        key = (algo1, algo2)
-        if key not in comparisons:
-            key = (algo2, algo1)
+        profile1 = algo_profiles.get(algo1, algo_profiles["LSB"])
+        profile2 = algo_profiles.get(algo2, algo_profiles["LSB"])
         
-        return comparisons.get(key, {
-            "capacity": {"winner": "Depends", "explanation": "Varies by implementation"},
-            "security": {"winner": "Depends", "explanation": "Varies by settings"},
-            "robustness": {"winner": "Depends", "explanation": "Varies by use case"},
-            "complexity": {"winner": "Depends", "explanation": "Both have trade-offs"},
-            "use_cases": {algo1: "Various", algo2: "Various"},
-            "recommendation": "Choose based on your specific requirements and image type."
-        })
+        # Build dynamic comparison based on scores
+        capacity_winner = algo1 if profile1["capacity_score"] > profile2["capacity_score"] else algo2
+        if abs(profile1["capacity_score"] - profile2["capacity_score"]) < 5:
+            capacity_winner = "Similar"
+            
+        security_winner = algo1 if profile1["security_score"] > profile2["security_score"] else algo2
+        robustness_winner = algo1 if profile1["robustness_score"] > profile2["robustness_score"] else algo2
+        complexity_winner = algo1 if profile1["complexity_score"] > profile2["complexity_score"] else algo2
+        
+        # Use case descriptions
+        use_case_map = {
+            "LSB": "Best for large payloads in lossless images (PNG, BMP). Fast and simple spatial domain technique.",
+            "DCT": "Ideal for JPEG images and web sharing. Resistant to compression and lossy transformations.",
+            "DWT": "Professional-grade wavelet embedding. Excellent imperceptibility and robustness for high-security needs.",
+            "AUDIO": "Perfect for audio-based covert communication in WAV files. Large capacity with inaudible modifications.",
+            "VIDEO": "Massive capacity across multiple frames. Supports MP4, AVI, MOV, and MKV formats."
+        }
+        
+        # Build recommendation string
+        if capacity_winner == algo1 and security_winner == algo2:
+            recommendation = f"Choose {algo1} for higher capacity needs or {algo2} for better security and robustness."
+        elif capacity_winner == algo2 and security_winner == algo1:
+            recommendation = f"Choose {algo1} for better security or {algo2} for higher capacity."
+        elif profile1["security_score"] > profile2["security_score"]:
+            recommendation = f"{algo1} offers better overall security and imperceptibility. {algo2} may be simpler or have higher capacity."
+        else:
+            recommendation = f"{algo2} provides superior security features. {algo1} might be better for capacity or ease of use."
+        
+        return {
+            "capacity": {
+                "winner": capacity_winner,
+                "explanation": f"{capacity_winner} provides superior embedding capacity. Score: {profile1['capacity_score']} vs {profile2['capacity_score']}",
+                "score1": profile1["capacity_score"],
+                "score2": profile2["capacity_score"]
+            },
+            "security": {
+                "winner": security_winner,
+                "explanation": f"{security_winner} offers better resistance to steganalysis attacks. Score: {profile1['security_score']} vs {profile2['security_score']}",
+                "score1": profile1["security_score"],
+                "score2": profile2["security_score"]
+            },
+            "robustness": {
+                "winner": robustness_winner,
+                "explanation": f"{robustness_winner} is more resistant to image processing and compression. Score: {profile1['robustness_score']} vs {profile2['robustness_score']}",
+                "score1": profile1["robustness_score"],
+                "score2": profile2["robustness_score"]
+            },
+            "complexity": {
+                "winner": complexity_winner,
+                "explanation": f"{complexity_winner} is simpler to implement and faster to execute. Score: {profile1['complexity_score']} vs {profile2['complexity_score']}",
+                "score1": profile1["complexity_score"],
+                "score2": profile2["complexity_score"]
+            },
+            "use_cases": {
+                algo1: use_case_map.get(algo1, "General purpose steganography"),
+                algo2: use_case_map.get(algo2, "General purpose steganography")
+            },
+            "recommendation": recommendation
+        }
 
 
 # Singleton instance

@@ -14,6 +14,7 @@ build/
 # Environment
 .env
 *.env
+backend/.env
 
 # IDE
 .vscode/
@@ -34,6 +35,7 @@ backend/outputs/*
 
 # Node
 node_modules/
+forntend/node_modules/
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
@@ -52,5 +54,21 @@ logs/
 # Folders for temporary files
 CollegeDocs/
 docs/
+
+# Documentation (temporary - generated during development)
+IMPROVEMENTS_SUMMARY.md
+TESTING_GUIDE.md
+UI_IMPROVEMENTS_QUICKREF.md
+VISUAL_IMPROVEMENTS.md
+CHANGES_COMPLETED.md
+UI_IMPROVEMENTS_README.md
+GIT_UPLOAD_GUIDE.md
+
+# Test files (temporary)
+test_audio_fix.py
 test_api_video.py
 test_video_fixes.py
+test_audio_api.py
+test_audio_overflow_fix.py
+test_audio_api_real.py
+test_audio_fix.py
