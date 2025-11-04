@@ -1,4 +1,4 @@
-# 🔐 StegoGen - AI-Powered Multi-Algorithm Steganography Platform
+# StegoGen - AI-Powered Multi-Algorithm Steganography Platform
 
 <div align="center">
 
@@ -13,77 +13,72 @@
 
 ---
 
-## 🏠 Home Page Preview
-
 ![Home Page Screenshot](resources/home.png)
 
 
-## 📋 Table of Contents
+## Contents
 
-- [Features](#-features)
-- [Live Demo](#-live-demo)
+- [Features](#-Features)
+- [Demo](#-demo)
 - [Architecture](#-architecture)
 - [Quick Start](#-quick-start)
 - [Usage Guide](#-usage-guide)
 - [API Reference](#-api-reference)
 - [Algorithm Details](#-algorithm-details)
 - [Security](#-security)
-- [Troubleshooting](#-troubleshooting)
 - [Contributing](#-contributing)
 - [License](#-license)
 
 ---
 
-## ✨ Features
+## Features
 
 ### **Multiple Steganography Algorithms**
-- **🎨 LSB (Least Significant Bit)**: Classic spatial domain steganography for images with high capacity
-- **🌊 DCT (Discrete Cosine Transform)**: Frequency domain embedding resistant to JPEG compression
-- **📊 DWT (Discrete Wavelet Transform)**: Wavelet-based embedding with excellent imperceptibility
-- **🎵 Audio Steganography**: Hide data in WAV audio samples with inaudible modifications
-- **🎬 Video Steganography**: Embed data across video frames (MP4, AVI, MOV, MKV) for massive capacity
+- **LSB (Least Significant Bit)**: Classic spatial domain steganography for images with high capacity
+- **DCT (Discrete Cosine Transform)**: Frequency domain embedding resistant to JPEG compression
+- **DWT (Discrete Wavelet Transform)**: Wavelet-based embedding with excellent imperceptibility
+- **Audio Steganography**: Hide data in WAV audio samples with inaudible modifications
+- **Video Steganography**: Embed data across video frames (MP4, AVI, MOV, MKV) for massive capacity
 
 ### **AI-Powered Intelligence**
-- **🤖 Smart Recommendations**: Grok AI analyzes carrier files and suggests optimal algorithms
-- **📊 Algorithm Comparison**: Compare algorithms side-by-side with detailed scoring (Capacity, Security, Robustness, Complexity)
-- **🎯 File Upload Analysis**: Upload any file to get ranked algorithm recommendations with match percentages
-- **💡 Parameter Optimization**: AI suggests optimal encoding parameters based on carrier characteristics
+- **Smart Recommendations**: Grok AI analyzes carrier files and suggests optimal algorithms
+- **Algorithm Comparison**: Compare algorithms side-by-side with detailed scoring (Capacity, Security, Robustness, Complexity)
+- **File Upload Analysis**: Upload any file to get ranked algorithm recommendations with match percentages
+- **Parameter Optimization**: AI suggests optimal encoding parameters based on carrier characteristics
 
 ### **Advanced Capabilities**
-- **📁 Binary File Support**: Hide any file type (documents, images, archives, executables)
-- **🔒 AES-256 Encryption**: Military-grade encryption for payload security
-- **📈 Quality Metrics**: Automatic PSNR and SSIM calculation for image quality assessment
-- **🎨 Modern UI/UX**: Beautiful React interface with glassmorphism effects and dark mode
-- **⚡ RESTful API**: 15+ FastAPI endpoints for all operations
-- **💻 CLI Tool**: Command-line interface for batch processing and automation
+- **Binary File Support**: Hide any file type (documents, images, archives, executables)
+- **AES-256 Encryption**: Military-grade encryption for payload security
+- **Quality Metrics**: Automatic PSNR and SSIM calculation for image quality assessment
+- **Modern UI/UX**: Beautiful React interface with glassmorphism effects and dark mode
+- **RESTful API**: 15+ FastAPI endpoints for all operations
+- **CLI Tool**: Command-line interface for batch processing and automation
 
 ### **UI/UX Highlights**
 - **Crystal Clear Stats**: Sharp, readable values across all stat cards (PSNR, SSIM, capacity)
-- **Animated Comparisons**: Visual progress bars with winner highlighting and smooth animations
-- **Drag-and-Drop**: Intuitive file upload with drag-and-drop support
 - **Real-time Feedback**: Loading states, progress indicators, and instant validation
 - **Responsive Design**: Mobile-first design with tailored breakpoints (768px, 480px)
 - **Accessibility**: Improved form labels, focus indicators, and semantic HTML
 
 ---
 
-## 🎥 Live Demo
+## Demo
 
 ### Encoding Interface
-![Encoding Interface](docs/screenshots/encode.png)
+![Encoding Interface](resources/encode.png)
 *Multi-algorithm encoding with AI-powered recommendations*
 
 ### Algorithm Comparison
-![Algorithm Comparison](docs/screenshots/compare.png)
+![Algorithm Comparison](resources/compare.png)
 *Side-by-side algorithm comparison with scoring and file upload analysis*
 
 ### Results Dashboard
-![Results Dashboard](docs/screenshots/results.png)
+![Results Dashboard](resources/results.png)
 *Clear metrics display with quality statistics*
 
 ---
 
-## 🏗 Architecture
+## Architecture
 
 ```
 ┌─────────────────┐         ┌──────────────────┐         ┌─────────────────┐
@@ -131,7 +126,7 @@
 
 ---
 
-## 🚀 Quick Start
+## Quick Start
 
 ### Prerequisites
 - Python 3.8+ with pip
@@ -141,13 +136,13 @@
 
 ### Installation
 
-#### 1️⃣ Clone Repository
+#### 1. Clone Repository
 ```bash
 git clone https://github.com/yourusername/steganoGen.git
 cd steganoGen
 ```
 
-#### 2️⃣ Backend Setup
+#### 2. Backend Setup
 ```bash
 cd backend
 
@@ -165,9 +160,9 @@ cp .env.example .env
 # Run backend server
 python main.py
 ```
-✅ Backend running at `http://localhost:8000`
+Backend running at `http://localhost:8000`
 
-#### 3️⃣ Frontend Setup
+#### 3. Frontend Setup
 ```bash
 cd frontend
 
@@ -177,27 +172,15 @@ npm install
 # Run development server
 npm start
 ```
-✅ Frontend running at `http://localhost:3000`
-
-### First Encode/Decode Test
-
-1. **Open browser** → `http://localhost:3000`
-2. **Navigate to Encode** page
-3. **Upload an image** (PNG recommended)
-4. **Enter a secret message**
-5. **Click "Encode Now"**
-6. **Download the stego image**
-7. **Navigate to Decode** page
-8. **Upload stego image** with same parameters
-9. **View decoded message** ✨
+Frontend running at `http://localhost:3000` | Open browser → `http://localhost:3000`
 
 ---
 
-## 📖 Usage Guide
+## Usage Guide
 
 ### Web Interface
 
-#### **Encoding** (Hiding Data)
+#### **<u>Encoding** (Hiding Data):</u>
 
 1. **Select Algorithm**:
    - `LSB`: Best for natural images, high capacity
@@ -230,9 +213,12 @@ npm start
    - Click "Encode Now"
    - View quality metrics (PSNR, SSIM)
    - Download stego file
-   - **⚠️ Save settings for decoding!**
+   - ⚠️ Save settings for decoding!
 
-#### **Decoding** (Extracting Data)
+
+
+
+#### <u>**Decoding** (Extracting Data):</u>
 
 1. **Select Same Algorithm** used for encoding
 2. **Upload Stego File**
@@ -469,14 +455,14 @@ Health check endpoint. Returns `{"status": "healthy"}`
 - Imperceptible to human eye (changes of ±1-4 in 0-255 range)
 
 **Pros**:
-✅ Very high capacity  
-✅ Simple and fast  
-✅ Excellent image quality (PSNR 70-80 dB)
+Very high capacity  
+Simple and fast  
+Excellent image quality (PSNR 70-80 dB)
 
 **Cons**:
-❌ Fragile to compression and image processing  
-❌ Detectable by statistical steganalysis (Chi-square, RS analysis)  
-❌ Not robust to JPEG compression
+Fragile to compression and image processing  
+Detectable by statistical steganalysis (Chi-square, RS analysis)  
+Not robust to JPEG compression
 
 **Parameters**:
 - `bits_per_channel` (1-4): Higher = more capacity, lower quality
@@ -499,14 +485,14 @@ Health check endpoint. Returns `{"status": "healthy"}`
 - Uses sign-based embedding (±strength)
 
 **Pros**:
-✅ Resistant to JPEG compression  
-✅ More secure than LSB  
-✅ Balanced quality and capacity
+Resistant to JPEG compression  
+More secure than LSB  
+Balanced quality and capacity
 
 **Cons**:
-❌ Lower capacity (~5-10% of image size)  
-❌ Slower than LSB  
-❌ More complex parameter tuning
+Lower capacity (~5-10% of image size)  
+Slower than LSB  
+More complex parameter tuning
 
 **Parameters**:
 - `strength` (1-50): Higher = more robust, lower capacity
@@ -529,14 +515,14 @@ Health check endpoint. Returns `{"status": "healthy"}`
 - Preserves visual quality better than DCT
 
 **Pros**:
-✅ Excellent imperceptibility (PSNR 55-60 dB)  
-✅ Highly robust to image processing  
-✅ Better than DCT for high-security needs
+Excellent imperceptibility (PSNR 55-60 dB)  
+Highly robust to image processing  
+Better than DCT for high-security needs
 
 **Cons**:
-❌ Lower capacity (~0.5-1% of image size)  
-❌ Slowest algorithm  
-❌ Complex implementation
+Lower capacity (~0.5-1% of image size)  
+Slowest algorithm  
+Complex implementation
 
 **Parameters**:
 - `strength` (1-50): Higher = more robust, lower capacity
@@ -559,14 +545,14 @@ Health check endpoint. Returns `{"status": "healthy"}`
 - Typical SNR > 40 dB (inaudible)
 
 **Pros**:
-✅ Large capacity (0.1-0.5% of audio size)  
-✅ Inaudible modifications  
-✅ Fast processing
+Large capacity (0.1-0.5% of audio size)  
+Inaudible modifications  
+Fast processing
 
 **Cons**:
-❌ WAV format only (uncompressed)  
-❌ Sensitive to audio re-encoding (MP3 conversion destroys data)  
-❌ Large file sizes
+WAV format only (uncompressed)  
+Sensitive to audio re-encoding (MP3 conversion destroys data)  
+Large file sizes
 
 **Use Cases**:
 - Voice note hiding
@@ -586,14 +572,14 @@ Health check endpoint. Returns `{"status": "healthy"}`
 - Typical capacity: 1-5% of video size
 
 **Pros**:
-✅ Huge capacity (GBs for long videos)  
-✅ Distributed hiding (harder to detect)  
-✅ Works with multiple formats
+Huge capacity (GBs for long videos)  
+Distributed hiding (harder to detect)  
+Works with multiple formats
 
 **Cons**:
-❌ Very slow processing (5-10 sec per minute)  
-❌ Format sensitive (re-encoding may corrupt)  
-❌ Large file sizes
+Very slow processing (5-10 sec per minute)  
+Format sensitive (re-encoding may corrupt)  
+Large file sizes
 
 **Use Cases**:
 - Very large files (archives, databases)
@@ -632,20 +618,21 @@ STEGANO|encrypted|<base64_iv>|<base64_encrypted_data>
 ### Threat Model
 
 **What StegoGen Protects Against**:
-✅ Casual observation (files look identical)  
-✅ Simple file inspection (hidden data not visible)  
-✅ Brute force (AES-256 with strong keys)  
-✅ Statistical analysis (DCT/DWT are more resistant)
++ Casual observation (files look identical)  
++ Simple file inspection (hidden data not visible)  
++ Brute force (AES-256 with strong keys)  
++ Statistical analysis (DCT/DWT are more resistant)
 
 **What It Doesn't Protect Against**:
-❌ Targeted steganalysis by experts  
-❌ Machine learning-based detection  
-❌ Known-plaintext attacks (if attacker has original)  
-❌ Compression (LSB fails with JPEG/MP3)
+- Targeted steganalysis by experts
+- Machine learning-based detection
+- Known-plaintext attacks (if attacker has original)
+- Compression (LSB fails with JPEG/MP3)
 
 ### Legal Disclaimer
 
-⚠️ **Use Responsibly**: Steganography may be restricted in some jurisdictions. This tool is for:
+⚠️ **Use Responsibly**: Steganography may be restricted in some jurisdictions.
+**This tool is for:**
 - Educational purposes
 - Security research
 - Legitimate privacy protection
@@ -659,7 +646,7 @@ STEGANO|encrypted|<base64_iv>|<base64_encrypted_data>
 
 ---
 
-## 🎯 Use Cases
+## Use Cases
 
 ### Legitimate Applications
 
@@ -680,107 +667,6 @@ STEGANO|encrypted|<base64_iv>|<base64_encrypted_data>
 
 ---
 
-## 🐛 Troubleshooting
-
-### Common Errors
-
-#### ❌ "Payload too large for carrier"
-
-**Solutions**:
-- Reduce payload size (compress files before hiding)
-- Use higher `bits_per_channel` for LSB (2-4)
-- Use video steganography for very large payloads
-- Split payload across multiple carriers
-
----
-
-#### ❌ "Decoding failed" or "Invalid payload"
-
-**Checklist**:
-1. ✅ Same algorithm as encoding?
-2. ✅ Same parameters (bits/strength)?
-3. ✅ Correct encryption key (if encrypted)?
-4. ✅ File not modified after encoding?
-5. ✅ File not compressed (JPEG/MP3)?
-
----
-
-#### ❌ "Import errors" (Missing dependencies)
-
-```bash
-cd backend
-source venv/bin/activate
-pip install --upgrade pip
-pip install -r requirements.txt
-```
-
----
-
-#### ❌ "Port already in use"
-
-**Backend (port 8000)**:
-```bash
-# macOS/Linux
-lsof -ti:8000 | xargs kill -9
-
-# Windows
-netstat -ano | findstr :8000
-taskkill /PID <PID> /F
-```
-
-**Frontend (port 3000)**:
-```bash
-# macOS/Linux
-lsof -ti:3000 | xargs kill -9
-
-# Windows
-netstat -ano | findstr :3000
-taskkill /PID <PID> /F
-```
-
----
-
-#### ❌ "CORS errors" in browser console
-
-**Solution**: Ensure backend CORS is configured:
-```python
-# backend/main.py should have:
-app.add_middleware(
-    CORSMiddleware,
-    allow_origins=["http://localhost:3000"],
-    allow_credentials=True,
-    allow_methods=["*"],
-    allow_headers=["*"],
-)
-```
-
----
-
-#### ❌ "FFmpeg not found" (Video encoding)
-
-**Install FFmpeg**:
-```bash
-# macOS
-brew install ffmpeg
-
-# Ubuntu/Debian
-sudo apt-get install ffmpeg
-
-# Windows
-# Download from https://ffmpeg.org/download.html
-# Add to PATH environment variable
-```
-
----
-
-#### ❌ "AI recommendations not working"
-
-**Fallback Mode**: System uses built-in scoring if Grok API unavailable
-- Check `.env` for valid `GROK_API_KEY`
-- Verify internet connection
-- Fallback provides same functionality without AI explanations
-
----
 
 ## 📂 Project Structure
 
@@ -901,7 +787,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 👥 Author
+## Author
 
 **Syed Wamiq**  
 🌐 [Portfolio](https://syedwamiq.framer.website)  
@@ -911,17 +797,7 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 
 ---
 
-## 🙏 Acknowledgments
-
-- **FastAPI** - Modern Python web framework
-- **React** - UI library
-- **OpenCV** - Computer vision library
-- **Grok AI** - AI-powered recommendations
-- **NIST** - AES-256 encryption standard
-
----
-
-## 📚 References
+## References
 
 ### Academic Papers
 - LSB Steganography: Classical spatial domain technique
@@ -941,12 +817,12 @@ This project is licensed under the MIT License - see the [LICENSE](LICENSE) file
 <div align="center">
 
 **Version**: 2.1  
-**Last Updated**: January 2025  
+**Last Updated**: November 2025  
 **API Version**: v1
 
 ---
 
-By [Syed Wamiq](https://syedwamiq.framer.website)
+[Syed Wamiq](https://syedwamiq.framer.website)
 
 wamiqworkspace@gmail.com
 
