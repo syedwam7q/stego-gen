@@ -508,9 +508,9 @@ def analyze_image(image_path: str, goal: str = "max_invisibility") -> dict:
 
 ## Questions?
 
-- 📧 Email: [your-email@example.com](mailto:your-email@example.com)
-- 💬 Discussions: [GitHub Discussions](https://github.com/yourusername/steganoGen/discussions)
-- 🐛 Issues: [GitHub Issues](https://github.com/yourusername/steganoGen/issues)
+- 📧 Email: [wamiqworkspace@example.com](mailto:wamiqworkspace@example.com)
+- 💬 Discussions: [GitHub Discussions](https://github.com/syedwam7q/steganoGen/discussions)
+- 🐛 Issues: [GitHub Issues](https://github.com/syedwam7q/steganoGen/issues)
 
 ---
 
